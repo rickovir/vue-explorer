@@ -1,7 +1,8 @@
 <template>
   <div class="home">
+    <h1>From emiter : {{textEmiter}}</h1>
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <HelloWorld :msg="message" @on-submit="submitHandler"/>
   </div>
 </template>
 
@@ -14,5 +15,12 @@ import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
     HelloWorld,
   },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  message?:string = "hello world to me";
+  textEmiter?:string = "";
+
+  submitHandler(event:string):void{
+    this.textEmiter = event;
+  }
+}
 </script>
